@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Padel Level Converter – Playtomic, LTA, USPA & FFT Ratings Compared</title>
+<meta name="description" content="Convert your padel level between Playtomic, LTA (UK), USPA (US) ratings — with honest guidance on the French FFT classement. Free chart and converter, no sign-up.">
+<link rel="canonical" href="https://padeldesk.org/padel-level-converter/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:title" content="Padel Level Converter – Playtomic, LTA, USPA & FFT">
+<meta property="og:description" content="What's your Playtomic level in LTA or USPA terms? Free converter and comparison chart.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://padeldesk.org/padel-level-converter/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is there one universal padel rating system?","acceptedAnswer":{"@type":"Answer","text":"No. Unlike pickleball (DUPR) or tennis (UTR), padel has no single worldwide rating. Playtomic uses an algorithmic 0–7 level, the LTA in Britain uses a 1.0–6.5+ self-assessed rating, the USPA in the United States uses an NTRP-style 1.0–7.0 scale, and the French FFT publishes a national ranking (classement) rather than a level. Any conversion between them is approximate."}},
+{"@type":"Question","name":"What is a good Playtomic level?","acceptedAnswer":{"@type":"Answer","text":"Most regular club players sit between 2.0 and 3.5 on Playtomic's 0–7 scale. Above 4.0 you are an experienced competitive player; 5.0+ is advanced tournament standard; professional players are 6.0–7.0."}},
+{"@type":"Question","name":"Does France use padel levels like Playtomic?","acceptedAnswer":{"@type":"Answer","text":"Not officially. The French federation (FFT) publishes a monthly national ranking based on tournament results. The P25, P100, P250, P500, P1000 and P2000 labels are tournament categories, not player levels — P100 means the tournament's prize level, not that a player 'is P100'. A rough guide: Playtomic 2–3 players enjoy P25/P100 events, 3.5–4.5 compete well in P100/P250, and 5.0+ players belong in P500 and above."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/"><span class="ball"></span>Padel<em>Desk</em></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/americano-generator/">Americano Generator</a>
+      <a href="/padel-scorekeeper/">Score Counter</a>
+      <a class="active" href="/padel-level-converter/">Level Converter</a>
+      <a href="/padel-court-cost-calculator/">Court Cost</a>
+      <a href="/padel-racket-finder/">Racket Finder</a>
+      <a href="/guides/">Guides</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <p class="crumbs"><a href="/">Home</a> › Padel Level Converter</p>
+  <h1>Padel Level Converter</h1>
+  <p class="lead" style="max-width:720px">Booked a court abroad, or joining a match in a new app? See what your <strong>Playtomic level</strong> roughly means as an <strong>LTA padel rating</strong> (UK) or <strong>USPA rating</strong> (US) — plus honest guidance for the French <strong>FFT</strong> system.</p>
+
+  <div class="card" style="margin-top:14px">
+    <div class="row">
+      <div class="field">
+        <label for="sysIn">I know my</label>
+        <select id="sysIn">
+          <option value="playtomic">Playtomic level (0–7)</option>
+          <option value="lta">LTA padel rating (UK, 1.0–6.5+)</option>
+          <option value="uspa">USPA rating (US, 1.0–7.0)</option>
+          <option value="self">Nothing yet — let me self-assess</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="valIn">My level</label>
+        <select id="valIn"></select>
+      </div>
+    </div>
+    <div id="convOut"></div>
+  </div>
+
+  <!-- ADSENSE: below-tool slot — paste ad unit code inside this div after approval -->
+  <div class="ad-slot"></div>
+
+  <article class="narrow" style="margin-top:34px">
+    <h2>Padel level comparison chart</h2>
+    <p>There is <strong>no universal padel rating</strong> — every country and app runs its own system, and none of them officially convert. The chart below lines the common scales up by playing ability. Treat it as a well-informed approximation, not an official equivalence.</p>
+    <div class="table-wrap">
+      <table id="chartTable">
+        <thead><tr><th>Playing ability</th><th>Playtomic</th><th>LTA (UK)</th><th>USPA (US)</th><th>France (FFT events)</th></tr></thead>
+        <tbody>
+          <tr><td>First sessions — learning serves and basic rallies</td><td>0.5–1.5</td><td>1.0–2.0</td><td>1.0–1.5</td><td>Open / fun events</td></tr>
+          <tr><td>Can rally and position with a partner; walls still tricky</td><td>2.0–2.5</td><td>2.5–3.0</td><td>2.0–2.5</td><td>P25 entry</td></tr>
+          <tr><td>Competent club player — uses the glass in defence, dependable volleys, starts lobbing with purpose</td><td>3.0–3.5</td><td>3.5–4.0</td><td>3.0–3.5</td><td>P25 / P100</td></tr>
+          <tr><td>Experienced competitor — tactics, pace control, reads the game</td><td>4.0–4.5</td><td>4.5–5.0</td><td>4.0–4.5</td><td>P100 / P250</td></tr>
+          <tr><td>Advanced — competes regionally, strong smash &amp; bajada, few unforced errors</td><td>5.0–5.5</td><td>5.5–6.0</td><td>5.0–5.5</td><td>P250 / P500</td></tr>
+          <tr><td>Elite — national level and above</td><td>6.0–7.0</td><td>6.5+</td><td>6.0–7.0</td><td>P500 / P1000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How each system actually works</h2>
+    <h3>Playtomic level (0–7)</h3>
+    <p>You answer a questionnaire when you join, then the algorithm moves your level up or down after every <em>competitive</em> match based on results and opponents. It's the most widely used number in European amateur padel because Playtomic also handles court booking and open matches.</p>
+    <h3>LTA padel rating (Great Britain, 1.0–6.5+)</h3>
+    <p>The LTA's system is a standardised self-assessment: you pick the statement that best describes your game ("I lack technique but have some control…" and so on) and it maps to a rating used for club divisions and match arranging. Competent tennis or squash players who are new to padel typically enter around 3.5.</p>
+    <h3>USPA rating (United States, 1.0–7.0)</h3>
+    <p>The United States Padel Association uses an NTRP-style 1.0–7.0 scale for sanctioned events and league brackets — familiar territory if you've played rated tennis in the US.</p>
+    <h3>France: FFT classement — a ranking, not a level</h3>
+    <p>France is different. The FFT publishes a <strong>monthly national ranking</strong> (classement) computed from tournament results. The P25/P100/P250/P500/P1000/P2000 labels you see everywhere are <strong>tournament categories</strong>, not player levels — "P100" describes the event, not the player. So there is no official "FFT level" to convert to; the right-hand column above shows the kind of FFT event where each ability band usually competes comfortably. If you play FFT tournaments, your actual classement is on your FFT licence profile.</p>
+
+    <h2>Why this matters</h2>
+    <p>Mis-stated levels are the #1 complaint in open matches: a "3.5" from one app can be a "2.5" in another, and the match is ruined for four people. When you travel — a padel trip to Spain, a work move to London or Miami — knowing your rough equivalent keeps matches fun and fair. Organising for a group of mixed levels? Our <a href="/americano-generator/">Americano generator</a> can balance matches using simple 1–10 levels.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="faq"><summary>Is this conversion official?</summary><div>No — none of these organisations publish official equivalences, and Playtomic states it cannot import levels from other systems. This chart aligns the published descriptions of each scale by playing ability. Use it as a starting point and adjust after a match or two.</div></details>
+    <details class="faq"><summary>Why is my Playtomic level different from how I'd rate myself?</summary><div>Playtomic only moves on competitive results inside Playtomic. If you mostly play friendly matches, or play outside the app, your number can lag behind your real level in either direction.</div></details>
+    <details class="faq"><summary>What level do I need for my first tournament?</summary><div>In the UK, club tournaments usually state an LTA rating band. In France, start with a P25 or P100 — they're designed for newer competitors. In the US, USPA events are bracketed by rating. Around Playtomic 2.5–3.0 you're ready to enjoy entry-level competition anywhere.</div></details>
+  </article>
+</div>
+
+<div id="toast" class="toastbox" role="status"></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>Tools</h4><ul>
+        <li><a href="/americano-generator/">Americano Generator</a></li>
+        <li><a href="/padel-scorekeeper/">Padel Score Counter</a></li>
+        <li><a href="/padel-level-converter/">Level Converter</a></li>
+        <li><a href="/padel-court-cost-calculator/">Court Cost Calculator</a></li>
+        <li><a href="/padel-racket-finder/">Racket Finder</a></li>
+      </ul></div>
+      <div><h4>Guides</h4><ul>
+        <li><a href="/guides/what-is-padel-americano/">What is Padel Americano?</a></li>
+        <li><a href="/guides/americano-vs-mexicano/">Americano vs Mexicano</a></li>
+        <li><a href="/guides/star-point-rule-padel/">The Star Point Rule</a></li>
+        <li><a href="/guides/how-many-rounds-padel-americano/">How Many Rounds?</a></li>
+      </ul></div>
+      <div><h4>PadelDesk</h4><ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="fine">© 2026 PadelDesk.org · PadelDesk is independent and not affiliated with Playtomic, the LTA, USPA or FFT. Conversions are approximate guidance, not official equivalences.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var BANDS = [
+    { desc: "First sessions — learning serves and basic rallies. Focus on getting the ball in play.",
+      playtomic: [0.5,1.5], lta: [1.0,2.0], uspa: [1.0,1.5], fft: "Open / fun events", self: "I'm brand new or have played a handful of times" },
+    { desc: "You can rally and hold position with a partner. The glass still surprises you.",
+      playtomic: [2.0,2.5], lta: [2.5,3.0], uspa: [2.0,2.5], fft: "P25 entry level", self: "I can rally but the walls still beat me" },
+    { desc: "Competent club player — comfortable using the glass in defence, dependable volleys, deliberate lobs.",
+      playtomic: [3.0,3.5], lta: [3.5,4.0], uspa: [3.0,3.5], fft: "P25 / P100 events", self: "I use the walls and play club matches regularly" },
+    { desc: "Experienced competitor — tactics, pace control, reads opponents and builds points.",
+      playtomic: [4.0,4.5], lta: [4.5,5.0], uspa: [4.0,4.5], fft: "P100 / P250 events", self: "I compete in tournaments with a real game plan" },
+    { desc: "Advanced — regional competitive standard, strong overhead game, very few unforced errors.",
+      playtomic: [5.0,5.5], lta: [5.5,6.0], uspa: [5.0,5.5], fft: "P250 / P500 events", self: "I compete at regional level" },
+    { desc: "Elite — national level and beyond.",
+      playtomic: [6.0,7.0], lta: [6.5,7.0], uspa: [6.0,7.0], fft: "P500 / P1000+", self: "I compete at national level or above" }
+  ];
+  var $ = function(id){ return document.getElementById(id); };
+
+  function options(){
+    var sys = $('sysIn').value, sel = $('valIn');
+    sel.innerHTML = '';
+    BANDS.forEach(function(b, i){
+      var label;
+      if (sys === 'self') label = b.self;
+      else {
+        var r = b[sys];
+        label = r[0] === r[1] ? String(r[0]) : r[0].toFixed(1) + ' – ' + r[1].toFixed(1);
+      }
+      var o = document.createElement('option');
+      o.value = i; o.textContent = label;
+      sel.appendChild(o);
+    });
+    sel.value = 2;
+    render();
+  }
+  function fmt(r){ return r[0].toFixed(1) + ' – ' + r[1].toFixed(1); }
+  function render(){
+    var b = BANDS[parseInt($('valIn').value, 10)];
+    $('convOut').innerHTML =
+      '<div class="notice ok" style="margin-top:6px"><strong>Your game:</strong> ' + b.desc + '</div>' +
+      '<div class="grid cols-3" style="margin-top:12px">' +
+      '<div class="card tc"><div class="kicker">Playtomic</div><div style="font-size:1.6rem;font-weight:800">' + fmt(b.playtomic) + '</div></div>' +
+      '<div class="card tc"><div class="kicker">LTA (UK)</div><div style="font-size:1.6rem;font-weight:800">' + fmt(b.lta) + '</div></div>' +
+      '<div class="card tc"><div class="kicker">USPA (US)</div><div style="font-size:1.6rem;font-weight:800">' + fmt(b.uspa) + '</div></div>' +
+      '</div>' +
+      '<p class="notice" style="margin-top:12px">🇫🇷 <strong>France:</strong> the FFT uses a national ranking, not a level. Players at this standard typically enjoy <strong>' + b.fft + '</strong> tournaments.</p>' +
+      '<p class="hint">Approximate guidance — none of these systems officially convert. Adjust after a couple of matches.</p>';
+  }
+  $('sysIn').addEventListener('change', options);
+  $('valIn').addEventListener('change', render);
+  options();
+})();
+</script>
+</body>
+</html>

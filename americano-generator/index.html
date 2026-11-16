@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Padel Americano Generator – Mexicano, Mixed & Team | No Sign-Up</title>
+<meta name="description" content="Free padel Americano and Mexicano tournament generator. Fair rotating partners, smart sit-outs for odd numbers, mixed americano, live leaderboard, round timer and WhatsApp-ready results. No app, no account.">
+<link rel="canonical" href="https://padeldesk.org/americano-generator/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:title" content="Free Padel Americano Generator – No App, No Sign-Up">
+<meta property="og:description" content="Americano, Mexicano, Mixed and Team formats with fair sit-outs, live leaderboard and WhatsApp results. Runs in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://padeldesk.org/americano-generator/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"PadelDesk Americano Generator","url":"https://padeldesk.org/americano-generator/","applicationCategory":"SportsApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free padel Americano and Mexicano tournament generator with fair sit-out rotation, mixed americano, skill balancing, session time planner, round timer, season leaderboard and WhatsApp-formatted results."}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a padel Americano?","acceptedAnswer":{"@type":"Answer","text":"A padel Americano is a social tournament format where players rotate partners every round and collect points individually. Everyone plays with and against different people, and the player with the most points at the end wins. It needs at least 4 players and works best with one court per 4 players."}},
+{"@type":"Question","name":"What is the difference between Americano and Mexicano padel?","acceptedAnswer":{"@type":"Answer","text":"In an Americano the whole schedule is set in advance and partners rotate so everyone plays with everyone. In a Mexicano, round 1 is drawn and from round 2 the pairings are based on the live ranking, so players of similar standing meet and matches get closer every round."}},
+{"@type":"Question","name":"Can I run a padel Americano with an odd number of players?","acceptedAnswer":{"@type":"Answer","text":"Yes. With an odd number (for example 5, 9 or 10 players on 2 courts) some players rest each round. This generator spreads the rests evenly, never makes the same player sit out twice in a row, and can award resting players the round average so the standings stay fair."}},
+{"@type":"Question","name":"How many points per match should we play?","acceptedAnswer":{"@type":"Answer","text":"The common options are 16, 21, 24 or 32 points per match. 16 points keeps rounds to roughly 12 minutes, 21 points about 15 minutes, 24 about 17 minutes and 32 about 22 minutes. Pick based on how long you have the courts; the built-in session planner does this maths for you."}},
+{"@type":"Question","name":"How many rounds do you play in an Americano?","acceptedAnswer":{"@type":"Answer","text":"With 8 players, 7 rounds let everyone partner everyone once. Most social sessions play 5 to 8 rounds. Enter your court time in the planner and it tells you exactly how many rounds fit."}},
+{"@type":"Question","name":"Do my players need to download an app?","acceptedAnswer":{"@type":"Answer","text":"No. The generator runs in any browser on any phone. There is no app to install, no account to create, and nothing is uploaded — names and scores stay on your device unless you choose to share a link."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/"><span class="ball"></span>Padel<em>Desk</em></a>
+    <nav class="nav" aria-label="Main">
+      <a class="active" href="/americano-generator/">Americano Generator</a>
+      <a href="/padel-scorekeeper/">Score Counter</a>
+      <a href="/padel-level-converter/">Level Converter</a>
+      <a href="/padel-court-cost-calculator/">Court Cost</a>
+      <a href="/padel-racket-finder/">Racket Finder</a>
+      <a href="/guides/">Guides</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <p class="crumbs"><a href="/">Home</a> › Americano Generator</p>
+  <h1>Padel Americano Generator</h1>
+  <p class="lead" style="max-width:720px">Create a fair <strong>Americano, Mexicano, Mixed or Team padel tournament</strong> in seconds — free, no app, no sign-up. Paste your WhatsApp list, pick your courts, and the generator handles rotating partners, sit-outs and the live leaderboard.</p>
+
+  <div id="resumeBanner" class="notice ok hide">You have an unfinished tournament on this device. <button class="btn btn-sm btn-primary" id="resumeBtn">Resume it</button> <button class="btn btn-sm btn-soft" id="discardBtn">Discard</button></div>
+
+  <!-- ======== SETUP ======== -->
+  <div id="setup" class="card" style="margin-top:14px">
+    <h2 class="mt0" style="margin-top:0">1 · Set up your session</h2>
+    <div class="row">
+      <div class="field" style="flex:2;min-width:220px">
+        <label for="eventTitle">Event name (optional)</label>
+        <input type="text" id="eventTitle" placeholder="Tuesday Night Americano">
+      </div>
+      <div class="field">
+        <label for="format">Format</label>
+        <select id="format">
+          <option value="americano">Americano – rotating partners</option>
+          <option value="mexicano">Mexicano – paired by ranking</option>
+          <option value="mixed">Mixed Americano – man + woman pairs</option>
+          <option value="team">Team Americano – fixed pairs</option>
+        </select>
+      </div>
+    </div>
+    <p id="teamHint" class="hint hide">Team format: teammates are taken in list order — players 1&amp;2 are a team, 3&amp;4 are a team, and so on.</p>
+    <div class="field">
+      <label for="namesInput">Players – one per line (paste straight from WhatsApp, numbering and emojis are cleaned automatically)</label>
+      <textarea id="namesInput" placeholder="1. Ali&#10;2. Sara (f)&#10;3. Tom&#10;4. Maria&#10;5. Ben&#10;6. Lucia&#10;7. Jack&#10;8. Emma"></textarea>
+      <p class="hint" id="parseInfo">Type or paste one name per line</p>
+    </div>
+    <div id="rosterPrefs" class="hide"></div>
+    <div class="row">
+      <div class="field">
+        <label for="courts">Courts</label>
+        <input type="number" id="courts" min="1" max="10" value="2">
+      </div>
+      <div class="field">
+        <label for="points">Points per match</label>
+        <select id="points">
+          <option value="16">16 points (~12 min)</option>
+          <option value="21" selected>21 points (~15 min)</option>
+          <option value="24">24 points (~17 min)</option>
+          <option value="32">32 points (~22 min)</option>
+          <option value="0">Free score (games/sets)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="restComp">Resting players get</label>
+        <select id="restComp">
+          <option value="avg" selected>Round average (fairest)</option>
+          <option value="none">No points</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="targetRounds">Planned rounds (optional)</label>
+        <input type="number" id="targetRounds" min="1" max="30" placeholder="e.g. 7">
+      </div>
+    </div>
+    <label class="check"><input type="checkbox" id="optLevels"> Balance matches by skill level (optional)</label>
+
+    <div class="notice" style="margin-top:18px">
+      <strong>⏱️ Session planner.</strong> How many minutes do you have the courts?
+      <input type="number" id="planMinutes" min="30" max="300" step="15" placeholder="90" style="width:90px;display:inline-block;margin:0 6px"> minutes
+      <div id="planOut" style="margin-top:10px"></div>
+    </div>
+
+    <p style="margin-top:18px"><button class="btn btn-lime" id="startBtn" style="font-size:1.08rem">🎾 Generate round 1</button></p>
+    <p class="hint">Free forever · no account · nothing uploaded — names and scores stay in your browser.</p>
+  </div>
+
+  <!-- ======== VIEWER (shared link) ======== -->
+  <div id="viewer" class="hide" style="margin-top:14px"></div>
+
+  <!-- ======== LIVE ======== -->
+  <div id="live" class="hide">
+    <div class="toolbar" style="margin-top:18px">
+      <span class="pill" id="roundProgress" style="font-size:.95rem;padding:8px 14px">Round 1</span>
+      <button class="btn btn-primary" id="nextRoundBtn">▶ Generate next round</button>
+      <button class="btn btn-ghost" id="endBtn">🏁 End &amp; show podium</button>
+      <button class="btn btn-soft" id="newBtn">New tournament</button>
+    </div>
+
+    <div class="row" style="align-items:center">
+      <div class="timerbox"><span id="timerDisp">12:00</span>
+        <span>
+          <button class="btn btn-sm btn-primary" id="timerStart">Start</button>
+          <button class="btn btn-sm btn-soft" id="timerPause">Pause</button>
+          <button class="btn btn-sm btn-soft" id="timerReset">Reset</button>
+        </span>
+      </div>
+      <div class="field" style="max-width:150px;margin:0">
+        <label for="timerMin">Minutes / round</label>
+        <input type="number" id="timerMin" value="12" min="1" max="60">
+      </div>
+      <label class="check" style="margin-top:14px"><input type="checkbox" id="timerAuto" checked> auto-restart each round</label>
+    </div>
+
+    <div id="restNext" class="next-rest hide"></div>
+    <div id="roundsBox"></div>
+
+    <h2>Live leaderboard</h2>
+    <div id="leaderboard"></div>
+
+    <div class="grid cols-2" style="margin-top:20px">
+      <div class="card">
+        <h3>📣 Share</h3>
+        <label class="check" style="margin-bottom:10px"><input type="checkbox" id="privacyChk"> First names only (privacy)</label>
+        <p>
+          <button class="btn btn-primary" id="waBtn">💬 Copy results for WhatsApp</button>
+          <button class="btn btn-soft" id="shareBtn">🔗 Copy share link</button>
+        </p>
+        <p class="hint">The share link is a read-only snapshot. With "first names only" on, full names never leave your phone.</p>
+      </div>
+      <div class="card">
+        <h3>👥 Players</h3>
+        <div id="playerList"></div>
+        <div class="row" style="margin-top:10px">
+          <div class="field" style="flex:2"><input type="text" id="addName" placeholder="Latecomer's name"></div>
+          <div class="field"><button class="btn btn-soft" id="addPlayerBtn">+ Add from next round</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="finalPanel" class="card hide" style="margin-top:20px;border:2px solid var(--lime)">
+      <h2 class="mt0" style="margin-top:0">🏁 Final result</h2>
+      <div class="grid cols-3" id="podium"></div>
+      <p style="margin-top:14px">
+        <button class="btn btn-lime" id="seasonSaveBtn">📈 Save to season table</button>
+      </p>
+    </div>
+
+    <h2>📈 Season table <span class="muted small">(your weekly group, saved on this device)</span></h2>
+    <div id="seasonBox" class="card"></div>
+  </div>
+
+  <!-- ADSENSE: below-tool slot — paste ad unit code inside this div after approval -->
+  <div class="ad-slot"></div>
+
+  <!-- ======== SEO CONTENT ======== -->
+  <article class="narrow" style="margin-top:40px">
+    <h2>How the Americano generator works</h2>
+    <ol>
+      <li><strong>Paste your player list.</strong> Copy the sign-up list straight from your WhatsApp group — "1. Ali ✅", bullets and emojis are cleaned up automatically. 4 to 40 players.</li>
+      <li><strong>Pick format, courts and points.</strong> Americano, Mexicano, Mixed Americano or Team Americano, on 1–10 courts, playing to 16, 21, 24 or 32 points per match. Not sure what fits your booking? The session planner turns "90 minutes, 2 courts, 10 players" into a ready-made plan.</li>
+      <li><strong>Play.</strong> Each round shows who plays with whom on which court, plus who's resting and who rests next. Type scores at the court — the second score fills in automatically and the leaderboard updates live.</li>
+      <li><strong>Share.</strong> One tap copies a formatted results message for the group chat, or a read-only link anyone can open. Running a weekly group? Save each session into a season table.</li>
+    </ol>
+
+    <h2>Why organisers use PadelDesk instead of a spreadsheet</h2>
+    <ul>
+      <li><strong>Fair sit-outs, visibly fair.</strong> With 10 players on 2 courts, two people rest every round. The generator spreads rests evenly, never benches anyone twice in a row, and shows the whole group who rests next — so the organiser never gets the blame.</li>
+      <li><strong>Odd numbers are fine.</strong> 5, 7, 9, 11 players — no problem. Resting players can be credited the round average so one rest doesn't ruin their ranking.</li>
+      <li><strong>Latecomers and early leavers.</strong> Add a player at round 3 or pause someone who has to go — the rotation recalculates and stays fair for everyone else.</li>
+      <li><strong>Skill balancing (optional).</strong> Give players a rough level from 1–10 and the generator keeps matches close instead of 8–0 blowouts.</li>
+      <li><strong>Finish on time.</strong> The round timer (with auto-restart and a beep) keeps all courts moving, so your Americano doesn't get cut off mid-round when the booking ends.</li>
+      <li><strong>Private by default.</strong> No account, nothing uploaded. Share with first names only if your group prefers.</li>
+    </ul>
+
+    <h2>Americano, Mexicano, Mixed or Team — which one tonight?</h2>
+    <p><strong>Americano</strong> is the classic social format: partners rotate every round, you score points individually, and everyone plays with everyone. Best for groups of mixed ability who want maximum variety.</p>
+    <p><strong>Mexicano</strong> starts with a random round, then pairs players by the live ranking — 1st and 3rd play 2nd and 4th on court 1, and so on. Matches get closer every round, which makes it great when skill levels vary a lot. Read the full comparison in our <a href="/guides/americano-vs-mexicano/">Americano vs Mexicano guide</a>.</p>
+    <p><strong>Mixed Americano</strong> (sometimes called Mixicano) keeps every pair one man + one woman. Tag names with (m)/(f) in your list, or set genders in the preview table.</p>
+    <p><strong>Team Americano</strong> keeps fixed pairs all night and runs a round robin between teams — ideal when people bring their regular partner.</p>
+
+    <h2>Setups that work well</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Players</th><th>Courts</th><th>Resting/round</th><th>Sweet spot</th></tr></thead>
+        <tbody>
+          <tr><td>4</td><td>1</td><td>0</td><td>3 rounds – everyone partners everyone</td></tr>
+          <tr><td><a href="/americano/8-players/">8</a></td><td>2</td><td>0</td><td>7 rounds – the perfect Americano</td></tr>
+          <tr><td><a href="/americano/10-players/">10</a></td><td>2</td><td>2</td><td>5 rounds – everyone rests exactly once</td></tr>
+          <tr><td><a href="/americano/12-players/">12</a></td><td>3</td><td>0</td><td>6–8 rounds in a 2-hour booking</td></tr>
+          <tr><td><a href="/americano/16-players/">16</a></td><td>4</td><td>0</td><td>Club night size – 6–8 rounds</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <details class="faq"><summary>What is a padel Americano?</summary><div>A social padel tournament where <strong>partners rotate every round and points are collected individually</strong>. Matches are usually played to a fixed total (16, 21, 24 or 32 points); the pair's score goes to each player. After the last round, the individual with the most points wins. More detail in <a href="/guides/what-is-padel-americano/">What is Padel Americano?</a></div></details>
+    <details class="faq"><summary>What's the difference between Americano and Mexicano?</summary><div>Americano fixes the whole schedule up front so everyone plays with everyone. Mexicano re-pairs every round based on the live ranking, so matches get tighter as the night goes on. See the <a href="/guides/americano-vs-mexicano/">full comparison</a>.</div></details>
+    <details class="faq"><summary>Can I run an Americano with 5, 9 or any odd number of players?</summary><div>Yes — that's exactly what this tool is built for. The players who rest are rotated fairly: everyone rests the same number of times (within one), nobody rests twice in a row, and you can credit resters the round average so the standings stay fair.</div></details>
+    <details class="faq"><summary>How many rounds and how many points should we play?</summary><div>It depends on your booking. As a rule of thumb a 16-point match takes ~12 minutes, 21 points ~15, 24 points ~17 and 32 points ~22. Enter your minutes in the session planner above and it lays out the options. Full maths in <a href="/guides/how-many-rounds-padel-americano/">How many rounds?</a></div></details>
+    <details class="faq"><summary>Do players need the app or an account?</summary><div>No app, no account, ever. It's a web page that works on any phone. Scores live in your browser only; sharing is always your choice.</div></details>
+    <details class="faq"><summary>Can other people see the live scores?</summary><div>You can copy a read-only snapshot link at any moment and drop it in the group chat. Turn on "first names only" and full names never leave your device.</div></details>
+    <details class="faq"><summary>Does it work offline at the club?</summary><div>Once the page is open it keeps working without a connection — scores save to your device. Load the page before you head into a basement court, and avoid closing the tab.</div></details>
+
+    <p class="notice" style="margin-top:26px">Keeping score on court instead? Try the free <a href="/padel-scorekeeper/">padel score counter</a> with Golden Point and the 2026 Star Point rule.</p>
+  </article>
+</div>
+
+<div id="toast" class="toastbox" role="status"></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>Tools</h4><ul>
+        <li><a href="/americano-generator/">Americano Generator</a></li>
+        <li><a href="/padel-scorekeeper/">Padel Score Counter</a></li>
+        <li><a href="/padel-level-converter/">Level Converter</a></li>
+        <li><a href="/padel-court-cost-calculator/">Court Cost Calculator</a></li>
+        <li><a href="/padel-racket-finder/">Racket Finder</a></li>
+      </ul></div>
+      <div><h4>Guides</h4><ul>
+        <li><a href="/guides/what-is-padel-americano/">What is Padel Americano?</a></li>
+        <li><a href="/guides/americano-vs-mexicano/">Americano vs Mexicano</a></li>
+        <li><a href="/guides/star-point-rule-padel/">The Star Point Rule</a></li>
+        <li><a href="/guides/how-many-rounds-padel-americano/">How Many Rounds?</a></li>
+      </ul></div>
+      <div><h4>PadelDesk</h4><ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="fine">© 2026 PadelDesk.org · Free padel tools for players and organisers worldwide.</div>
+  </div>
+</footer>
+
+<script src="/assets/americano-engine.js"></script>
+<script src="/assets/americano-app.js"></script>
+</body>
+</html>

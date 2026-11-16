@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Padel Score Counter – Star Point & Golden Point (2026 Rules)</title>
+<meta name="description" content="Free padel score counter and scoreboard for your phone. All three official deuce modes — Advantage, Golden Point and the 2026 Star Point rule — with sets, tiebreaks and undo. No app, no sign-up.">
+<link rel="canonical" href="https://padeldesk.org/padel-scorekeeper/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:title" content="Padel Score Counter – with the 2026 Star Point rule">
+<meta property="og:description" content="Free on-court padel scoreboard: Advantage, Golden Point and Star Point modes, tiebreaks, undo. Runs in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://padeldesk.org/padel-scorekeeper/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How does padel scoring work?","acceptedAnswer":{"@type":"Answer","text":"Padel uses tennis scoring: points go 0, 15, 30, 40, game. A set is won at 6 games with a 2-game lead, with a tiebreak at 6-6, and matches are usually best of 3 sets. At 40-40 (deuce) there are three official formats: Advantage, Golden Point and the Star Point introduced in the 2026 FIP rulebook."}},
+{"@type":"Question","name":"What is the Star Point in padel?","acceptedAnswer":{"@type":"Answer","text":"The Star Point is a deuce format added to the official FIP rules from 1 January 2026. At deuce, advantage can be played for up to two cycles; if the game is still level after the second return to deuce, a single deciding point — the Star Point — settles the game. It is used on Premier Padel and the CUPRA FIP Tour from the 2026 season."}},
+{"@type":"Question","name":"What is the Golden Point in padel?","acceptedAnswer":{"@type":"Answer","text":"With the Golden Point rule, the very first deuce (40-40) is decided by a single point — no advantage is played. It keeps matches short and was the standard in professional padel before the Star Point arrived in 2026."}},
+{"@type":"Question","name":"How does a padel tiebreak work?","acceptedAnswer":{"@type":"Answer","text":"At 6-6 in games, a tiebreak is played to 7 points with a 2-point lead. The tiebreak winner takes the set 7-6."}}
+]}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="/"><span class="ball"></span>Padel<em>Desk</em></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/americano-generator/">Americano Generator</a>
+      <a class="active" href="/padel-scorekeeper/">Score Counter</a>
+      <a href="/padel-level-converter/">Level Converter</a>
+      <a href="/padel-court-cost-calculator/">Court Cost</a>
+      <a href="/padel-racket-finder/">Racket Finder</a>
+      <a href="/guides/">Guides</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <p class="crumbs"><a href="/">Home</a> › Padel Score Counter</p>
+  <h1>Padel Score Counter</h1>
+  <p class="lead" style="max-width:700px">A free on-court <strong>padel scoreboard</strong> for your phone — tap the side that wins the point. Supports all three official deuce formats, including the <strong>2026 Star Point rule</strong>, plus tiebreaks, sets and undo.</p>
+
+  <div class="card" style="margin-top:14px">
+    <div class="row">
+      <div class="field"><label for="nameA">Left team</label><input type="text" id="nameA" placeholder="Ali &amp; Sara"></div>
+      <div class="field"><label for="nameB">Right team</label><input type="text" id="nameB" placeholder="Tom &amp; Maria"></div>
+      <div class="field">
+        <label for="mode">At deuce (40-40) play</label>
+        <select id="mode">
+          <option value="star" selected>Star Point (2026 FIP rule)</option>
+          <option value="golden">Golden Point (sudden death)</option>
+          <option value="advantage">Advantage (classic)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="scoreboard">
+      <div class="sb-team" id="tapA" role="button" aria-label="Point to left team">
+        <div class="nm" id="dispNameA">Left team</div>
+        <div class="pts" id="ptsA">0</div>
+        <div class="gs">Games <strong id="gamesA">0</strong> · Sets <strong id="setsA">0</strong></div>
+      </div>
+      <div class="sb-team" id="tapB" role="button" aria-label="Point to right team">
+        <div class="nm" id="dispNameB">Right team</div>
+        <div class="pts" id="ptsB">0</div>
+        <div class="gs">Games <strong id="gamesB">0</strong> · Sets <strong id="setsB">0</strong></div>
+      </div>
+      <div class="sb-status" id="status">Tap the side that wins the point</div>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn btn-soft" id="undoBtn">↩ Undo point</button>
+      <button class="btn btn-danger" id="resetBtn">Reset match</button>
+    </div>
+    <p class="hint" id="setsLine"></p>
+    <p class="hint">Tip: keep the screen on and prop the phone by the net post. Everything stays on your device.</p>
+  </div>
+
+  <!-- ADSENSE: below-tool slot — paste ad unit code inside this div after approval -->
+  <div class="ad-slot"></div>
+
+  <article class="narrow" style="margin-top:36px">
+    <h2>Padel scoring, explained in 60 seconds</h2>
+    <p>Padel borrows tennis scoring: points climb <strong>0 → 15 → 30 → 40 → game</strong>. Win 6 games with a two-game lead and you take the set; at 6-6 you play a <strong>tiebreak to 7</strong> (win by 2) and the set ends 7-6. Matches are normally best of three sets.</p>
+    <p>The only part people argue about is <strong>what happens at 40-40 (deuce)</strong> — and since January 2026 there are three official answers. Agree on one before the match starts, or just pick it in the counter above:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mode</th><th>What happens at 40-40</th><th>Used where</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Advantage</strong></td><td>Win two points in a row to take the game — can repeat forever</td><td>Classic/club play, long matches</td></tr>
+          <tr><td><strong>Golden Point</strong></td><td>One single point decides the game immediately</td><td>Fast social play; former pro standard</td></tr>
+          <tr class="hl"><td><strong>Star Point</strong></td><td>Up to two advantage cycles; still level after the second return to deuce → one deciding point</td><td>2026 FIP rulebook; Premier Padel &amp; CUPRA FIP Tour from 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The Star Point was approved by the FIP General Assembly in late 2025 and came into force on 1 January 2026 as a middle ground between endless advantage battles and the all-or-nothing Golden Point. Our counter tracks the cycles for you and flashes <strong>“STAR POINT”</strong> when the deciding point arrives — read the full breakdown in <a href="/guides/star-point-rule-padel/">The Star Point Rule in Padel</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <details class="faq"><summary>Why does the counter say "2 advantage cycles left"?</summary><div>That's Star Point mode doing its job. Each time a team wins advantage but loses the next point, the game returns to deuce — that's one cycle used. After two cycles, the next point is the deciding Star Point.</div></details>
+    <details class="faq"><summary>Can I use this for a normal tennis-style game?</summary><div>Yes — choose <strong>Advantage</strong> mode and it behaves exactly like traditional scoring with unlimited deuces.</div></details>
+    <details class="faq"><summary>I tapped the wrong side — what now?</summary><div>Hit <strong>Undo</strong>. Every point is stored on your device, so you can step back as many points as you need.</div></details>
+    <details class="faq"><summary>Does it work without internet?</summary><div>Once the page is loaded it runs entirely on your phone — no connection needed during the match.</div></details>
+
+    <p class="notice">Running a group night instead of one match? The free <a href="/americano-generator/">Americano generator</a> builds the whole rotation, leaderboard and WhatsApp results for you.</p>
+  </article>
+</div>
+
+<div id="toast" class="toastbox" role="status"></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div><h4>Tools</h4><ul>
+        <li><a href="/americano-generator/">Americano Generator</a></li>
+        <li><a href="/padel-scorekeeper/">Padel Score Counter</a></li>
+        <li><a href="/padel-level-converter/">Level Converter</a></li>
+        <li><a href="/padel-court-cost-calculator/">Court Cost Calculator</a></li>
+        <li><a href="/padel-racket-finder/">Racket Finder</a></li>
+      </ul></div>
+      <div><h4>Guides</h4><ul>
+        <li><a href="/guides/what-is-padel-americano/">What is Padel Americano?</a></li>
+        <li><a href="/guides/americano-vs-mexicano/">Americano vs Mexicano</a></li>
+        <li><a href="/guides/star-point-rule-padel/">The Star Point Rule</a></li>
+        <li><a href="/guides/how-many-rounds-padel-americano/">How Many Rounds?</a></li>
+      </ul></div>
+      <div><h4>PadelDesk</h4><ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/terms/">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="fine">© 2026 PadelDesk.org · Free padel tools for players and organisers worldwide.</div>
+  </div>
+</footer>
+
+<script src="/assets/scorekeeper.js"></script>
+<script>
+(function(){
+  var S = window.PDScore;
+  var st = S.create(document.getElementById('mode').value);
+  var $ = function(id){ return document.getElementById(id); };
+
+  function render(){
+    var d = S.display(st);
+    $('ptsA').textContent = d.a; $('ptsB').textContent = d.b;
+    $('gamesA').textContent = st.gA; $('gamesB').textContent = st.gB;
+    $('setsA').textContent = st.sA; $('setsB').textContent = st.sB;
+    var status = $('status');
+    if (st.over) {
+      var winner = st.sA > st.sB ? ($('nameA').value || 'Left team') : ($('nameB').value || 'Right team');
+      status.innerHTML = '🏆 <span class="flash">' + winner.replace(/</g,'&lt;') + ' wins the match!</span>';
+    } else if (d.label) {
+      status.innerHTML = /STAR|GOLDEN/.test(d.label) ? '⭐ <span class="flash">' + d.label + '</span>' : d.label;
+    } else {
+      status.textContent = 'Tap the side that wins the point';
+    }
+    $('setsLine').textContent = st.sets.length ? 'Completed sets: ' + st.sets.map(function(s){return s[0]+'-'+s[1];}).join(', ') : '';
+  }
+  function names(){
+    $('dispNameA').textContent = $('nameA').value || 'Left team';
+    $('dispNameB').textContent = $('nameB').value || 'Right team';
+  }
+  $('tapA').addEventListener('click', function(){ S.point(st,'A'); render(); });
+  $('tapB').addEventListener('click', function(){ S.point(st,'B'); render(); });
+  $('undoBtn').addEventListener('click', function(){ S.undo(st); render(); });
+  $('resetBtn').addEventListener('click', function(){
+    if (confirm('Reset the whole match?')) { st = S.create($('mode').value); render(); }
+  });
+  $('mode').addEventListener('change', function(){ st.mode = this.value; render(); });
+  $('nameA').addEventListener('input', names);
+  $('nameB').addEventListener('input', names);
+  render();
+})();
+</script>
+</body>
+</html>
