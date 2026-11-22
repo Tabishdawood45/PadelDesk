@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
+<title id="t">Star Point padel scoring flow under the 2026 FIP rule</title>
+<desc id="d">At deuce, advantage is played up to two cycles; if still level, one deciding Star Point settles the game.</desc>
+<style>
+  .bg{fill:#f6f8fb}
+  .box{fill:#fff;stroke:#1d6ff2;stroke-width:1.5;rx:10}
+  .star{fill:#0d1b2a;rx:10}
+  .h{font:700 13px system-ui,sans-serif;fill:#0d1b2a}
+  .hs{font:700 13px system-ui,sans-serif;fill:#c6f432}
+  .s{font:400 11px system-ui,sans-serif;fill:#64748b}
+  .ss{font:400 11px system-ui,sans-serif;fill:#cbd5e1}
+  .arrow{stroke:#1d6ff2;stroke-width:2;fill:none;marker-end:url(#a)}
+  .lbl{font:600 10px system-ui,sans-serif;fill:#1d6ff2}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d6ff2"/></marker></defs>
+<rect class="bg" width="760" height="300" rx="12"/>
+
+<rect class="box" x="24" y="120" width="150" height="60"/>
+<text class="h" x="99" y="146" text-anchor="middle">40–40</text>
+<text class="s" x="99" y="164" text-anchor="middle">Deuce</text>
+
+<rect class="box" x="214" y="120" width="150" height="60"/>
+<text class="h" x="289" y="146" text-anchor="middle">Advantage</text>
+<text class="s" x="289" y="164" text-anchor="middle">win 2 in a row = game</text>
+
+<rect class="box" x="404" y="120" width="150" height="60"/>
+<text class="h" x="479" y="140" text-anchor="middle">Lost the point?</text>
+<text class="s" x="479" y="158" text-anchor="middle">back to deuce</text>
+<text class="s" x="479" y="172" text-anchor="middle">= one cycle used</text>
+
+<rect class="star" x="594" y="112" width="150" height="76"/>
+<text class="hs" x="669" y="140" text-anchor="middle">★ STAR POINT</text>
+<text class="ss" x="669" y="160" text-anchor="middle">after 2 cycles,</text>
+<text class="ss" x="669" y="175" text-anchor="middle">one deciding point</text>
+
+<path class="arrow" d="M174 150 L210 150"/>
+<path class="arrow" d="M364 150 L400 150"/>
+<path class="arrow" d="M554 150 L590 150"/>
+<text class="lbl" x="479" y="60" text-anchor="middle">loop up to 2×</text>
+<path class="arrow" d="M404 135 C360 70, 330 70, 300 118"/>
+
+<text class="s" x="380" y="250" text-anchor="middle">FIP Rules of Padel, Rule 1 Option 2 — in force from 1 January 2026. Optional in club play.</text>
+</svg>

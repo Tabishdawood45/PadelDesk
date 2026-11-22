@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" role="img" aria-labelledby="t d">
+<title id="t">How a padel Americano rotation works across three rounds</title>
+<desc id="d">Eight players on two courts. Each round the partners change, so players never repeat a partner.</desc>
+<style>
+  .bg{fill:#f6f8fb}
+  .card{fill:#fff;stroke:#e2e8f0;stroke-width:1.5;rx:10}
+  .rh{font:700 13px system-ui,sans-serif;fill:#0d1b2a}
+  .ct{font:700 10px system-ui,sans-serif;fill:#c6f432}
+  .pl{font:600 12px system-ui,sans-serif;fill:#1b2a3f}
+  .vs{font:700 10px system-ui,sans-serif;fill:#64748b}
+  .cap{font:400 11px system-ui,sans-serif;fill:#64748b}
+  .tag{fill:#0d1b2a;rx:5}
+  .note{font:600 11px system-ui,sans-serif;fill:#1d6ff2}
+  .arrow{stroke:#1d6ff2;stroke-width:2;fill:none;marker-end:url(#a)}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d6ff2"/></marker></defs>
+<rect class="bg" width="760" height="330" rx="12"/>
+
+<text class="rh" x="30" y="34">Round 1</text>
+<rect class="card" x="30" y="44" width="200" height="54"/>
+<rect class="tag" x="40" y="56" width="52" height="16"/><text class="ct" x="47" y="68">COURT 1</text>
+<text class="pl" x="40" y="90">Ali &amp; Sara</text><text class="vs" x="118" y="90">vs</text><text class="pl" x="138" y="90">Tom &amp; Mia</text>
+<rect class="card" x="250" y="44" width="200" height="54"/>
+<rect class="tag" x="260" y="56" width="52" height="16"/><text class="ct" x="267" y="68">COURT 2</text>
+<text class="pl" x="260" y="90">Ben &amp; Eva</text><text class="vs" x="338" y="90">vs</text><text class="pl" x="358" y="90">Jack &amp; Nina</text>
+
+<text class="rh" x="30" y="138">Round 2</text>
+<rect class="card" x="30" y="148" width="200" height="54"/>
+<rect class="tag" x="40" y="160" width="52" height="16"/><text class="ct" x="47" y="172">COURT 1</text>
+<text class="pl" x="40" y="194">Ali &amp; Tom</text><text class="vs" x="118" y="194">vs</text><text class="pl" x="138" y="194">Sara &amp; Mia</text>
+<rect class="card" x="250" y="148" width="200" height="54"/>
+<rect class="tag" x="260" y="160" width="52" height="16"/><text class="ct" x="267" y="172">COURT 2</text>
+<text class="pl" x="260" y="194">Ben &amp; Jack</text><text class="vs" x="338" y="194">vs</text><text class="pl" x="358" y="194">Eva &amp; Nina</text>
+
+<text class="rh" x="30" y="242">Round 3</text>
+<rect class="card" x="30" y="252" width="200" height="54"/>
+<rect class="tag" x="40" y="264" width="52" height="16"/><text class="ct" x="47" y="276">COURT 1</text>
+<text class="pl" x="40" y="298">Ali &amp; Mia</text><text class="vs" x="118" y="298">vs</text><text class="pl" x="138" y="298">Sara &amp; Tom</text>
+<rect class="card" x="250" y="252" width="200" height="54"/>
+<rect class="tag" x="260" y="264" width="52" height="16"/><text class="ct" x="267" y="276">COURT 2</text>
+<text class="pl" x="260" y="298">Ben &amp; Nina</text><text class="vs" x="338" y="298">vs</text><text class="pl" x="358" y="298">Eva &amp; Jack</text>
+
+<path class="arrow" d="M470 75 L500 75"/>
+<path class="arrow" d="M470 179 L500 179"/>
+<path class="arrow" d="M470 283 L500 283"/>
+
+<rect class="card" x="510" y="44" width="220" height="262"/>
+<text class="rh" x="528" y="74">Partners rotate</text>
+<text class="cap" x="528" y="96">Ali plays with Sara, then Tom,</text>
+<text class="cap" x="528" y="112">then Mia. No pair repeats.</text>
+<text class="note" x="528" y="142">8 players = 7 rounds</text>
+<text class="cap" x="528" y="160">Everyone partners everyone</text>
+<text class="cap" x="528" y="176">exactly once.</text>
+<text class="rh" x="528" y="208">Points are individual</text>
+<text class="cap" x="528" y="230">Your pair's score goes to you.</text>
+<text class="cap" x="528" y="246">Lose 12–9 and you still bank 9.</text>
+<text class="note" x="528" y="276">Most points after the</text>
+<text class="note" x="528" y="292">last round wins.</text>
+</svg>

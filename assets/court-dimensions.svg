@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" role="img" aria-labelledby="t d">
+<title id="t">Padel court dimensions: 10 metres by 20 metres</title>
+<desc id="d">A padel court playing area is 20 metres long and 10 metres wide, divided by a net with a service line 3 metres from each back glass.</desc>
+<style>
+  .bg{fill:#f6f8fb}
+  .court{fill:#1557c4;stroke:#0d1b2a;stroke-width:3}
+  .line{stroke:#fff;stroke-width:2;fill:none}
+  .net{stroke:#c6f432;stroke-width:3;stroke-dasharray:4 3}
+  .dim{font:700 13px system-ui,sans-serif;fill:#0d1b2a}
+  .sub{font:400 11px system-ui,sans-serif;fill:#64748b}
+  .tick{stroke:#64748b;stroke-width:1}
+</style>
+<rect class="bg" width="560" height="360" rx="12"/>
+<rect class="court" x="120" y="40" width="320" height="280" rx="4"/>
+<line class="net" x1="120" y1="180" x2="440" y2="180"/>
+<line class="line" x1="120" y1="100" x2="440" y2="100"/>
+<line class="line" x1="120" y1="260" x2="440" y2="260"/>
+<line class="line" x1="280" y1="100" x2="280" y2="260"/>
+
+<line class="tick" x1="120" y1="335" x2="440" y2="335"/>
+<text class="dim" x="280" y="352" text-anchor="middle">20 m long</text>
+
+<line class="tick" x1="90" y1="40" x2="90" y2="320"/>
+<text class="dim" x="60" y="184" text-anchor="middle" transform="rotate(-90 60 184)">10 m wide</text>
+
+<text class="sub" x="465" y="72" >back glass</text>
+<text class="sub" x="465" y="150" >service</text>
+<text class="sub" x="465" y="164" >box (3 m)</text>
+<text class="sub" x="447" y="183" fill="#9fd10a">net</text>
+<text class="sub" x="120" y="28">Playing area 10 × 20 m · allow ~11 × 21 m per court with structure</text>
+</svg>

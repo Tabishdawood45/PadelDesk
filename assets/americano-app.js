@@ -386,6 +386,10 @@
       if (!$('namesInput').value.trim()) $('namesInput').value = Array.from({ length: n }, (_, i) => 'Player ' + (i + 1)).join('\n');
     }
     if (q.get('courts')) $('courts').value = q.get('courts');
+    if (q.get('format')) {
+      const f = q.get('format');
+      if (['americano', 'mexicano', 'mixed', 'team'].includes(f)) $('format').value = f;
+    }
 
     // resume?
     let savedState = null;
