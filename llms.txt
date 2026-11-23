@@ -1,0 +1,31 @@
+# PadelDesk
+
+> Free browser-based padel tools for players and organisers. No sign-up required.
+
+PadelDesk builds free padel tools that run entirely in your browser. The site covers Americano tournament generation, live scoring, level conversion between rating systems, court cost estimation, and racket selection guidance.
+
+## Tools
+
+- [Americano Generator](https://padeldesk.org/americano-generator/): Generate fair Americano, Mexicano, Mixed and Team schedules for any group size with sit-out rotation and live leaderboard.
+- [Padel Score Counter](https://padeldesk.org/padel-scorekeeper/): On-court scoreboard with Advantage, Golden Point and 2026 Star Point deuce modes.
+- [Level Converter](https://padeldesk.org/padel-level-converter/): Convert padel ratings between Playtomic, LTA (UK), USPA (US) and FFT (France) systems.
+- [Court Cost Calculator](https://padeldesk.org/padel-court-cost-calculator/): Estimate padel court construction costs for the UK, US and EU with 2026 price data.
+- [Racket Finder](https://padeldesk.org/padel-racket-finder/): 5-question quiz matching your level, play style and budget to the right racket shape, weight and balance.
+
+## Guides
+
+- [What is Padel Americano?](https://padeldesk.org/guides/what-is-padel-americano/): Rules, scoring and how to run a padel Americano session.
+- [Americano vs Mexicano](https://padeldesk.org/guides/americano-vs-mexicano/): The difference between the two formats and which to choose.
+- [The Star Point Rule](https://padeldesk.org/guides/star-point-rule-padel/): The 2026 FIP deuce rule explained with examples.
+- [How Many Rounds?](https://padeldesk.org/guides/how-many-rounds-padel-americano/): Session planning by time and player count.
+
+## Player Count Guides
+
+- [6 Players](https://padeldesk.org/americano/6-players/)
+- [8 Players](https://padeldesk.org/americano/8-players/)
+- [10 Players](https://padeldesk.org/americano/10-players/)
+- [12 Players](https://padeldesk.org/americano/12-players/)
+- [14 Players](https://padeldesk.org/americano/14-players/)
+- [16 Players](https://padeldesk.org/americano/16-players/)
+- [20 Players](https://padeldesk.org/americano/20-players/)
+- [24 Players](https://padeldesk.org/americano/24-players/)
